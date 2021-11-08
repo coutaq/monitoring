@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <div v-if='serverdata'>
-    <cpu-component :cpudata="serverdata['cpu']"></cpu-component>
+    <cpu-component :cpudata="serverdata" test="dsfds"></cpu-component>
   </div>
  
 </template>
@@ -21,23 +21,25 @@ export default {
   },
   methods:{
     setData(data){
-      this.serverdata = JSON.parse(data)
-      console.log(this.serverdata)
+      this.serverdata = data
+      // console.log(this.serverdata)
     },
   },
    created() {
      let vm = this;
     console.log("Starting connection to WebSocket Server")
-    this.connection = new WebSocket("ws://192.168.0.105:5000/data?key=test")
+    
+    // this.connection = new WebSocket("ws://109.254.85.64:5555/data?key=test")
 
-    this.connection.onmessage = function(event) {
-      vm.setData(event.data)
-    }
+    // this.connection.onmessage = function(event) {
+    //   var s = event.data;
+    //   vm.setData(JSON.parse(s))
+    // }
 
-    this.connection.onopen = function() {
-      // console.log(this)
-      console.log("Successfully connected to the echo websocket server...")
-    }
+    // this.connection.onopen = function() {
+    //   // console.log(this)
+    //   console.log("Successfully connected to the echo websocket server...")
+    // }
 
   }
    

@@ -7,7 +7,11 @@
 
 <script>
 export default {
-props:['cpudata']
+props:['cpudata', 'test'],
+mounted(){
+  console.log("test: ",this.cpudata["'cpu'"])
+  // console.log(this.test)
+}
 }
 </script>
 
