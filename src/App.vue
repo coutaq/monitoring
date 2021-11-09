@@ -1,14 +1,17 @@
 <template>
   <div>
-    <!-- <server-component
-      address="localhost"
-      port="5000"
-      apikey="test"
-    ></server-component> -->
+    <div class="inputs">
+      <input type="text" v-bind="server" placeholder="Address" />
+      <input type="text" v-bind="port" placeholder="Port" />
+      <input type="text" v-bind="key" placeholder="Key" />
+      <button class="btn btn-secondary" v-on="addServer">+</button>
+    </div>
     <server-component
-      address="109.254.85.64"
-      port="5555"
-      apikey="test"
+      v-for="server in servers"
+      :key="server.address"
+      :address="server.address"
+      :port="server.port"
+      :apikey="server.key"
     ></server-component>
   </div>
 </template>
@@ -16,9 +19,26 @@
 <script>
 import ServerComponent from "./components/Server.vue";
 export default {
+  data() {
+    return {
+      server: "",
+      port: "",
+      key: "",
+      servers: [],
+    };
+  },
   name: "App",
   components: {
     ServerComponent,
+  },
+  methods: {
+    addServer() {
+      this.servers.append({
+        address: this.address,
+        port: this.port,
+        key: this.key,
+      });
+    },
   },
 };
 </script>
@@ -40,5 +60,10 @@ export default {
   width: calc(3 * 300px);
   display: grid;
   grid-template-columns: repeat(3, 300px);
+}
+.inputs {
+  display: flex;
+  justify-content: space-evenly;
+  widows: calc(2 * 300px);
 }
 </style>
