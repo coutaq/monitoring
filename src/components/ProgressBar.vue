@@ -32,9 +32,9 @@ beforeUpdate(){
   background: repeating-linear-gradient(
     to right,
     grey,
-    grey 9%,
-    #ffffff 1%,
-    #ffffff 10%
+    grey 14px,
+    #ffffff 1px,
+    #ffffff 15px
     );
     border: solid black 2px;
 }
@@ -44,9 +44,9 @@ beforeUpdate(){
   background: repeating-linear-gradient(
     to right,
     #606dbc,
-    #606dbc 9%,
-    #ffffff 1%,
-    #ffffff 10%
+    #606dbc 14px,
+    #ffffff 1px,
+    #ffffff 15px
     );
   text-align: center; /* To center it horizontally (if you want) */
   line-height: 30px; /* To center it vertically */
@@ -54,11 +54,11 @@ beforeUpdate(){
 }
 .bar-wrapper{
     display: inline-block;
-    width:155px;
+    width:150px;
 }
 .value{
     display: inline-block;
-    width:75px;
+    width:80px;
     text-align: center;
     height: 30px;
     margin-top:0.75ch;

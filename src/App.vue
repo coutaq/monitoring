@@ -2,17 +2,23 @@
   <div class="data" v-if='serverdata'>
     <cpu-component :data="serverdata.cpu"></cpu-component>
     <ram-component :data="serverdata.mem"></ram-component>
+    <disks-component :data="serverdata.disks"></disks-component>
+    <temp-component :data="serverdata.temps"></temp-component>
   </div>
 </template>
 
 <script>
 import CpuComponent from './components/CPU.vue'
 import RamComponent from './components/RAM.vue'
+import TempComponent from './components/Temps.vue'
+import DisksComponent from './components/Disks.vue'
 export default {
   name: 'App',
   components: {
     CpuComponent,
-    RamComponent
+    RamComponent,
+    TempComponent,
+    DisksComponent
   },
   data:function(){
     return{
@@ -106,6 +112,7 @@ export default {
     },
     setData(data){
       this.serverdata = this.fixJSON(data.replaceAll("'", "\""))
+      console.log(this.serverdata)
     },
   },
    created() {
@@ -132,12 +139,9 @@ export default {
 .card{
   width:225px;
 }
-.card-info{
-  height: 170px;
-}
 .data{
-  width:70%;
+  width:calc(4*300px);
   display:grid;
-  grid-template-columns:repeat(3, 300px)
+  grid-template-columns:repeat(4, 300px)
 }
 </style>
