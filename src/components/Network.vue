@@ -3,15 +3,17 @@
     <div class="card-info">
       <h1>Connections</h1>
       <hr />
-      <h3>Total: {{ data.total }}</h3>
-      <h3>Used: {{ data.used }}</h3>
-      <h3>Free: {{ data.available }}</h3>
+      <div>
+        <h3>Speed</h3>
+        <h2>Up:{{ speed.up }}</h2>
+        <h2>Down:{{ speed.down }}</h2>
+      </div>
+      <div v-for="item in data">
+        <h3>{{ item.name }}</h3>
+        <h2>{{ item.speed }}</h2>
+      </div>
     </div>
     <hr />
-    <div>
-      <h2>Used RAM</h2>
-      <progress-bar :value="getRAMNum(data.percent)"></progress-bar>
-    </div>
   </div>
 </template>
 
@@ -21,7 +23,7 @@ export default {
   components: {
     ProgressBar,
   },
-  props: ["data"],
+  props: ["data", "speed"],
   methods: {
     getRAMNum(val) {
       return parseFloat(val.slice(0, -1));

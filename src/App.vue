@@ -1,5 +1,10 @@
 <template>
   <div>
+    <!-- <server-component
+      address="localhost"
+      port="5000"
+      apikey="test"
+    ></server-component> -->
     <server-component
       address="109.254.85.64"
       port="5555"
