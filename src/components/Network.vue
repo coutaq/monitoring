@@ -1,7 +1,7 @@
 <template>
   <div class="card" v-if="data">
     <div class="card-info">
-      <h1>RAM</h1>
+      <h1>Connections</h1>
       <hr />
       <h3>Total: {{ data.total }}</h3>
       <h3>Used: {{ data.used }}</h3>
