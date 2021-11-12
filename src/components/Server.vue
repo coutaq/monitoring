@@ -20,7 +20,7 @@ import DisksComponent from "./Disks.vue";
 import NetworkComponent from "./Network.vue";
 import fixJSON from "../utils/json";
 export default {
-  props: ["address", "port", "apikey"],
+  props: ["serverinfo"],
   components: {
     NetworkComponent,
     CpuComponent,
@@ -42,7 +42,12 @@ export default {
   created() {
     let vm = this;
     this.connection = new WebSocket(
-      "ws://" + this.address + ":" + this.port + "/data?key=" + this.apikey
+      "ws://" +
+        this.serverinfo.address +
+        ":" +
+        this.serverinfo.port +
+        "/data?key=" +
+        this.serverinfo.apikey
     );
     this.connection.onmessage = function (event) {
       vm.setData(event.data);
