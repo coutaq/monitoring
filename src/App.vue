@@ -7,11 +7,9 @@
       <button class="btn btn-secondary" v-on="addServer">+</button>
     </div>
     <server-component
-      v-for="server in servers"
-      :key="server.address"
-      :address="server.address"
-      :port="server.port"
-      :apikey="server.key"
+      apikey="test"
+      port="5555"
+      address="109.254.85.64"
     ></server-component>
   </div>
 </template>
