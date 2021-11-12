@@ -23,7 +23,12 @@
 
 <script>
 import ServerComponent from "./components/Server.vue";
+import store from "./store";
 export default {
+  created() {
+    this.servers = store.get("servers", []);
+    console.log("servers:", this.servers);
+  },
   data() {
     return {
       serverinfo: {},
@@ -37,6 +42,8 @@ export default {
   methods: {
     addServer() {
       this.servers.push(this.serverinfo);
+      store.set("servers", this.servers);
+
     },
   },
 };
