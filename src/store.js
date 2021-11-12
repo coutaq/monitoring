@@ -5,4 +5,8 @@ const schema = {
     default: [],
   },
 };
-export default new Store(schema);
+export default new Store({
+  name: "serverlist",
+  encryptionKey: "abadsdgasgdhasghgshadghgKJGJQHWG$MH#Gmqew",
+  schema,
+});
