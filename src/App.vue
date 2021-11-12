@@ -1,23 +1,29 @@
 <template>
   <div>
     <div class="inputs">
-      <input type="text" v-bind="serverinfo.server" placeholder="Address" />
-      <input type="text" v-bind="serverinfo.port" placeholder="Port" />
-      <input type="text" v-bind="serverinfo.key" placeholder="Key" />
-      <button class="btn btn-secondary" v-on="addServer()">+</button>
+      <input type="text" v-model="serverinfo.add" placeholder="Address" />
+      <input type="text" v-model="serverinfo.port" placeholder="Port" />
+      <input type="text" v-model="serverinfo.key" placeholder="Key" />
+      <button class="btn btn-secondary" v-on:click="addServer()">+</button>
     </div>
-    <server-component
+    <p v-for="server in servers">{{ server.add }}</p>
+    <!-- <server-component
       v-for="server in servers"
       :key="server.server"
       :serverinfo="server"
       v-if="server"
-    ></server-component>
+    ></server-component> -->
   </div>
 </template>
 
 <script>
 import ServerComponent from "./components/Server.vue";
+import store from "./store";
 export default {
+  created() {
+    this.servers = store.get("servers", []);
+    console.log("servers:", this.servers);
+  },
   data() {
     return {
       serverinfo: {},
@@ -32,6 +38,7 @@ export default {
     addServer() {
       this.servers.push(this.serverinfo);
       console.log(this.servers);
+      store.set("servers", this.servers);
     },
   },
 };

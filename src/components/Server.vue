@@ -19,6 +19,7 @@ import TempComponent from "./Temps.vue";
 import DisksComponent from "./Disks.vue";
 import NetworkComponent from "./Network.vue";
 import fixJSON from "../utils/json";
+
 export default {
   props: ["serverinfo"],
   components: {
