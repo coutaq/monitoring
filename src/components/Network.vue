@@ -1,16 +1,16 @@
 <template>
-  <div class="card" v-if="data">
+  <div class="col-12 col-md-6 col-lg-4 mb-2" v-if="data">
     <div class="card-info">
-      <h1>Connections</h1>
+      <h4>Connections</h4>
       <hr />
-      <div>
+      <!-- <div>
         <h3>Speed</h3>
         <h2>Up:{{ speed.up }}</h2>
         <h2>Down:{{ speed.down }}</h2>
-      </div>
+      </div> -->
       <div v-for="item in data">
-        <h3>{{ item.name }}</h3>
-        <h2>{{ item.speed }}</h2>
+        <h5>{{ item.name }}</h5>
+        <p>{{ item.speed }}</p>
       </div>
     </div>
     <hr />

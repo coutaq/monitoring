@@ -1,14 +1,16 @@
 <template>
-  <h1>{{ address }}</h1>
-  <div class="data">
-    <cpu-component :data="serverdata.cpu"></cpu-component>
-    <ram-component :data="serverdata.mem"></ram-component>
-    <temp-component :data="serverdata.temps"></temp-component>
-    <network-component
-      :data="serverdata.network"
-      :speed="serverdata.speed"
-    ></network-component>
-    <disks-component :data="serverdata.disks"></disks-component>
+  <div class="row container">
+    <h3>{{ serverinfo.address }}</h3>
+    <div class="row">
+      <cpu-component :data="serverdata.cpu"></cpu-component>
+      <ram-component :data="serverdata.mem"></ram-component>
+      <temp-component :data="serverdata.temps"></temp-component>
+      <!-- <network-component
+        :data="serverdata.network"
+        :speed="serverdata.speed"
+      ></network-component> -->
+      <disks-component :data="serverdata.disks"></disks-component>
+    </div>
   </div>
 </template>
 
@@ -41,18 +43,21 @@ export default {
     },
   },
   created() {
-    let vm = this;
-    this.connection = new WebSocket(
-      "ws://" +
-        this.serverinfo.address +
-        ":" +
-        this.serverinfo.port +
-        "/data?key=" +
-        this.serverinfo.apikey
-    );
-    this.connection.onmessage = function (event) {
-      vm.setData(event.data);
-    };
+    if (Object.keys(this.serverinfo).length > 0) {
+      console.log("ws:", this.serverinfo.server);
+      let vm = this;
+      this.connection = new WebSocket(
+        "ws://" +
+          this.serverinfo.address +
+          ":" +
+          this.serverinfo.port +
+          "/data?key=" +
+          this.serverinfo.apikey
+      );
+      this.connection.onmessage = function (event) {
+        vm.setData(event.data);
+      };
+    }
   },
 };
 </script>

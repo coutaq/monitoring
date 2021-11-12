@@ -1,15 +1,15 @@
 <template>
-  <div class="card" v-if="data">
+  <div class="col-12 col-md-6 col-lg-4 mb-2" v-if="data">
     <div class="card-info">
-      <h1>RAM</h1>
+      <h4>RAM</h4>
       <hr />
-      <h3>Total: {{ data.total }}</h3>
-      <h3>Used: {{ data.used }}</h3>
-      <h3>Free: {{ data.available }}</h3>
+      <h5>Total: {{ data.total }}</h5>
+      <h5>Used: {{ data.used }}</h5>
+      <h5>Free: {{ data.available }}</h5>
     </div>
     <hr />
     <div>
-      <h2>Used RAM</h2>
+      <p>Used RAM</p>
       <progress-bar :value="getRAMNum(data.percent)"></progress-bar>
     </div>
   </div>

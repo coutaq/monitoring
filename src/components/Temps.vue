@@ -1,12 +1,12 @@
 <template>
-  <div class="card" v-if="data">
+  <div class="col-12 col-md-6 col-lg-4 mb-2" v-if="data">
     <div class="card-info">
-      <h1>Temps</h1>
+      <h4>Temps</h4>
       <div v-for="item in data">
         <hr />
-        <h2>{{ item.name }}</h2>
-        <h3>Currenct: {{ item.current }}<sup>o</sup>C</h3>
-        <h3>Critical: {{ item.critical }}<sup>o</sup>C</h3>
+        <h5>{{ item.name }}</h5>
+        <p>Current: {{ item.current }}<sup>o</sup>C</p>
+        <p>Critical: {{ item.critical }}<sup>o</sup>C</p>
       </div>
     </div>
   </div>
