@@ -1,14 +1,14 @@
 <template>
-  <div class="card" v-if="data">
+  <div class="col-12 col-md-6 col-lg-4 mb-4" v-if="data">
     <div class="card-info">
-      <h1>CPU</h1>
+      <h4>CPU</h4>
       <hr />
-      <h3>Cores: {{ data.cores }}</h3>
-      <h3>Threads: {{ data.threads }}</h3>
+      <h5>Cores: {{ data.cores }}</h5>
+      <h5>Threads: {{ data.threads }}</h5>
     </div>
     <hr />
     <div>
-      <h2>Total Load</h2>
+      <p>Total Load</p>
       <progress-bar :value="data.total_load"></progress-bar>
     </div>
     <hr />

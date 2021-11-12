@@ -1,16 +1,16 @@
 <template>
-  <div class="card" v-if="data">
+  <div class="col-12 col-md-6 col-lg-4 mb-2" v-if="data">
     <div class="card-info">
-      <h1>Disks</h1>
+      <h4>Disks</h4>
       <div v-for="item in data">
         <hr />
-        <h2>{{ item.device }} at "{{ item.mountpoint }}"</h2>
-        <h3>{{ item.fstype }}</h3>
+        <h5>{{ item.device }} at "{{ item.mountpoint }}"</h5>
+        <p>{{ item.fstype }}</p>
         <hr />
-        <h2>Storage</h2>
-        <h3>Total: {{ item.storage.total }}</h3>
-        <h3>Used: {{ item.storage.used }}</h3>
-        <h3>Free: {{ item.storage.available }}</h3>
+        <h5>Storage</h5>
+        <p>Total: {{ item.storage.total }}</p>
+        <p>Used: {{ item.storage.used }}</p>
+        <p>Free: {{ item.storage.available }}</p>
         <progress-bar :value="getMemNum(item.storage.percent)"></progress-bar>
       </div>
     </div>
